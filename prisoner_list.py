@@ -7,6 +7,7 @@ def prisoner_trial(prisoners_num):
 
     for prisoner in range(prisoners_num):
         current_drawer=prisoner_list[prisoner]
+        
         for attempt in range(50):
             if current_drawer == prisoner+1:
                 break
@@ -14,6 +15,7 @@ def prisoner_trial(prisoners_num):
                 current_drawer = prisoner_list[current_drawer-1]
         else:
             return False
+    
     return True
 
 def calculate_probability(prisoners_num, num_trials):
@@ -24,6 +26,7 @@ def calculate_probability(prisoners_num, num_trials):
             success_count += 1
 
     success_probability = success_count / num_trials
+    
     return success_probability
 
 num_trials = 1000
