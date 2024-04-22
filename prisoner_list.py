@@ -6,7 +6,7 @@ def prisoner_trial(prisoners_num):
     random.shuffle(prisoner_list)
 
     for prisoner in range(prisoners_num):
-        current_drawer=prisoner_list[prisoner]
+        current_drawer = prisoner_list[prisoner]
         
         for attempt in range(50):
             if current_drawer == prisoner+1:
