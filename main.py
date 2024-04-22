@@ -14,25 +14,32 @@ print(prisoner_pick)
 
 # 죄수 및 정답 순서
 
-order = 0
-answer = prisoner_num_list[order]
-print(answer)
+def simulation_pick(answer, prisoner_pick):
+    for selection in prisoner_pick:
+        if selection == answer:
+            return True
+    return False
 
-for try_num in range(50+1):
-    selection = prisoner_pick[try_num]
-    print(selection)
+def calculate_success_probability(n):
+    success_count = 0
+    for _ in range(n):
+        prisoner_num_list = generate_prisoner_num()
+        prisoner_pick = [random.randint(1, 100) for _ in range(50)]
+        success = True
+        for answer in prisoner_num_list:
+            if not simulation_pick(answer, prisoner_pick):
+                success = False
+                break
+        if success:
+            success_count += 1
+    success_probability = success_count / n * 100
+    return success_probability
 
-    if selection == answer:
-        print('정답을 맞혔습니다. 다음 죄수로 넘어갑니다.')
-        order += 1
-        break
+n = int(input('몇 회 시도하시겠습니까?: '))
+success_probability = calculate_success_probability(n)
+print(f"{n}회 시도 후 성공 확률은 {success_probability:.2f}%입니다.")
 
 
-
-
-
-
-    
 
 
 # for order in range(0, 99):
