@@ -1,3 +1,5 @@
+## 죄송합니다
+
 import random
 
 def generate_prisoner_num():
